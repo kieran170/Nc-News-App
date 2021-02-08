@@ -2,7 +2,7 @@ import React from 'react';
 import LikeCount from './LikeCount'
 import {Link} from '@reach/router'
 
-const ArticlesCard = ({title, body, author, created_at, topic, votes, article_id, handleLikeClick, index}) => {
+const ArticlesCard = ({title, body, author, created_at, topic, votes, handleLikeClick, index, comment_count}) => {
     
     return (
         <section className='article-card'>
@@ -12,6 +12,7 @@ const ArticlesCard = ({title, body, author, created_at, topic, votes, article_id
             <p>{body}</p>
             <p>{created_at}</p>
             <p>Votes: {votes}</p>
+            <p>comments: {comment_count}</p>
             <LikeCount handleLikeClick={handleLikeClick} location={index}/>
         </section>
     );
