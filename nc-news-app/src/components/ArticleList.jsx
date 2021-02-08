@@ -43,11 +43,9 @@ class ArticleList extends Component {
     handleLikeClick = (event, index) => {
         event.preventDefault()
         const article_id = this.state.articles[index].article_id;
-        api.postVote(article_id)
-        // const copyArticles = {...this.state.articles}
-        // copyArticles[index].votes += 1
-        //patch request to increase votes
-        this.setState(() => {
+        api.postVote(article_id).then((articles) => {
+            const newArticles = articles.data.article
+            console.log(newArticles)
         })
     }
 }
