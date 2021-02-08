@@ -46,4 +46,9 @@ export const getAllArticles = (query) => {
     });
 };
 
-export const postVote = () => {};
+export const postVote = (article_id) => {
+  return axios.patch(
+    `https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}`,
+    { inc_votes: 1 }
+  );
+};
