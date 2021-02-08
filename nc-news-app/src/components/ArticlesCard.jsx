@@ -7,7 +7,7 @@ const ArticlesCard = ({title, body, author, created_at, topic, votes}) => {
             <p>Topic: {topic}</p>
             <p>{body}</p>
             <p>Author: {author}</p>
-            <p>{Date(created_at)}</p>
+            <p>{created_at}</p>
             <p>Votes: {votes}</p>
         </section>
     );

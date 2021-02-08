@@ -20,7 +20,7 @@ class ArticleList extends Component {
         }
         return (
             <>
-                <Buttons />
+                <Buttons handleClick={this.handleClick}/>
                 <main className='articles-container'>
                     {articles.map((article) => {
                         return <ArticlesCard key={article.article_id} {...article} />
@@ -34,6 +34,9 @@ class ArticleList extends Component {
         api.getAllArticles().then((articles) => {
             this.setState({articles, isLoading: false});
         });
+    }
+    handleClick() {
+        console.log('hello')
     }
 }
 
