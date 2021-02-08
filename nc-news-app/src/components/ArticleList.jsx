@@ -42,11 +42,13 @@ class ArticleList extends Component {
     }
     handleLikeClick = (event, index) => {
         event.preventDefault()
-        const copyArticles = {...this.state.articles}
-        copyArticles[index].votes += 1
+        api.postVote().then((res)=> {
+            console.log(res)
+        })
+        // const copyArticles = {...this.state.articles}
+        // copyArticles[index].votes += 1
         //patch request to increase votes
         this.setState(() => {
-            return {copyArticles} 
         })
     }
 }
