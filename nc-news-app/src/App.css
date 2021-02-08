@@ -14,3 +14,12 @@
 .articles-container {
     border: 2px green solid;
 }
+.article-card {
+    border: 1px blue solid;
+    padding: 2%;
+}
+.loading {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
