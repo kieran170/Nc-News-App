@@ -20,23 +20,34 @@ class ArticleList extends Component {
         }
         return (
             <>
-                <Buttons handleClick={this.handleClick}/>
+                <Buttons handleOrderClick={this.handleOrderClick}/>
                 <main className='articles-container'>
-                    {articles.map((article) => {
-                        return <ArticlesCard key={article.article_id} {...article} />
+                    {articles.map((article, index) => {
+                        return <ArticlesCard key={article.article_id} index={index} {...article} handleLikeClick={this.handleLikeClick}/>
                     })}
                 </main>
                 
             </>
         );
     }
-    fetchArticles() {
+    fetchArticles = () => {
         api.getAllArticles().then((articles) => {
             this.setState({articles, isLoading: false});
         });
     }
-    handleClick() {
-        console.log('hello')
+    handleOrderClick = (event) => {
+        api.getAllArticles(event.target.id).then((articles) => {
+            this.setState({articles, isLoading: false})
+        })
+    }
+    handleLikeClick = (event, index) => {
+        event.preventDefault()
+        const copyArticles = {...this.state.articles}
+        copyArticles[index].votes += 1
+        //patch request to increase votes
+        this.setState(() => {
+            return {copyArticles} 
+        })
     }
 }
 

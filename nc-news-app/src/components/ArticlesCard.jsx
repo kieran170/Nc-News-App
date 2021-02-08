@@ -1,14 +1,18 @@
 import React from 'react';
+import LikeCount from './LikeCount'
+import {Link} from '@reach/router'
 
-const ArticlesCard = ({title, body, author, created_at, topic, votes}) => {
+const ArticlesCard = ({title, body, author, created_at, topic, votes, article_id, handleLikeClick, index}) => {
+    
     return (
         <section className='article-card'>
-            <h3>{title}</h3>
+            <Link to='/articles/*'className='article-title'>{title}</Link>
             <p>Topic: {topic}</p>
-            <p>{body}</p>
             <p>Author: {author}</p>
+            <p>{body}</p>
             <p>{created_at}</p>
             <p>Votes: {votes}</p>
+            <LikeCount handleLikeClick={handleLikeClick} location={index}/>
         </section>
     );
 };
