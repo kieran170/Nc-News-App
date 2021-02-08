@@ -6,7 +6,7 @@ const ArticlesCard = ({title, body, author, created_at, topic, votes, article_id
     
     return (
         <section className='article-card'>
-            <Link to='/articles/*'className='article-title'>{title}</Link>
+            <h1 className='article-title'>{title}</h1>
             <p>Topic: {topic}</p>
             <p>Author: {author}</p>
             <p>{body}</p>
