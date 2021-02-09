@@ -31,19 +31,20 @@ class ArticleById extends Component {
                     <p className='single-author'>Author: {author}</p>
                     <p className='single-comments'>Votes: {votes}</p>
                     <p className='single-comments'>Comments: {comment_count}</p>
+                    <br></br>
+                    <button>👍</button>
+                    <button>👎</button>
               </div>
               <ul className='all-comments-container'>
                   <h2 className='comment-title'>Comments</h2>
                   {comments.map((comment) => {
                       return(
-                          <>
                             <li className='single-comment-container' key={comment.comment_id}>
                                 <p className='single-comment' >{comment.body}</p>
                                 <p className='comment-vote'>Votes: {comment.votes}</p>
                                 <button>👍</button>
                                 <button>👎</button>
                             </li>
-                          </>
                       )
                   })}
               </ul>
