@@ -8,11 +8,13 @@ class ArticleById extends Component {
     state={
         article: {},
         errMessage: '',
-        isLoading: true
+        isLoading: true,
+        comments: []
     }
 
     componentDidMount() {
         this.fetchArticleById(this.props.article_id)
+        this.fetchArticleComments(this.props.article_id)
     }
     render() {
         
@@ -38,6 +40,9 @@ class ArticleById extends Component {
         }).catch(({response:{data:{msg}}}) => {
             this.setState({errMessage: msg, isLoading: false})
         })
+    }
+    fetchArticleComments = (article_id) => {
+        api.getArticleComments(article_id)
     }
 }
 
