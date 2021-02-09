@@ -45,12 +45,11 @@
   text-align: center;
 }
 .error-link {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .single-article-container {
   border: 2px black solid;
-  height: 100vh;
 }
 .single-article-body {
   margin: 5%;
@@ -62,10 +61,30 @@
   display: inline-flex;
   margin-top: 1%;
   margin-left: 5%;
-
 }
 .single-author {
   margin-bottom: 1%;
   margin-left: 5%;
   font-weight: bold;
+}
+.comments-container {
+  border: 2px red solid;
+}
+.all-comments-container {
+  border: 2px black solid;
+  list-style: none;
+  padding-left: 0px;
+}
+.single-comment-container {
+  border: 2px red solid;
+  margin-bottom: 5%;
+}
+.single-comment {
+  margin: 5%;
+}
+.comment-title {
+  text-align: center;
+}
+.comment-vote {
+  margin-left: 5%;
 }
