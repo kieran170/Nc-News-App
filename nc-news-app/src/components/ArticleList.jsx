@@ -10,14 +10,18 @@ class ArticleList extends Component {
         articles: [],
     }
 
-    componentDidMount() {
-        this.fetchArticles()
+    componentDidMount = () => {
+            const topic = this.props.topic;
+            if (topic === undefined) {
+              this.fetchArticles()  
+            } else {
+                this.handleTopic(topic)
+            }
     }
 
     componentDidUpdate(prevProps) {
         const topic = this.props.topic;
         if (topic !== undefined && topic !== prevProps.topic) {
-            console.log(topic)
             this.handleTopic(topic)
         }
 
@@ -54,11 +58,11 @@ class ArticleList extends Component {
     handleLikeClick = (event, index) => {
         event.preventDefault()
         const article_id = this.state.articles[index].article_id;
-        const articleUpdatedVotes = this.state.articles[index]
         api.postVote(event.target.id, article_id).then((article) => {
-            articleUpdatedVotes.votes = article.data.article.votes
             this.setState((currentState) => {
-                return currentState.articles
+                const articleUpdatedVotes = currentState.articles[index]
+                articleUpdatedVotes.votes = article.data.article.votes
+                return currentState;
             })
         })
     }

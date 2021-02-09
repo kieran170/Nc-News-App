@@ -9,7 +9,6 @@ const ArticlesCard = ({title, body, author, created_at, topic, votes, handleLike
             <Link to={`/article/${article_id}`}className='article-title'>{title}</Link>
             <p>Topic: {topic}</p>
             <Link to={`/articles-by-author/${author}`}>Author: {author}</Link>
-            <p>{body}</p>
             <p>{created_at}</p>
             <p>Votes: {votes}</p>
             <p>comments: {comment_count}</p>

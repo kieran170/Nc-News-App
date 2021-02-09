@@ -31,6 +31,12 @@
   border: 2px purple solid;
   padding: 2%;
 }
+.trending-topic-button {
+  margin: 5%;
+}
+.trending-topic-title {
+  text-align: center;
+}
 .error-message {
-    text-align: center;
+  text-align: center;
 }
