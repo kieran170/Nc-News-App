@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import * as api from '../api'
+import ErrorDisplayer from './ErrorDisplayer';
+
 
 class ArticleById extends Component {
 
     state={
-        article: {}
+        article: {},
+        errMessage: '',
+        isLoading: true
     }
 
     componentDidMount() {
         this.fetchArticleById(this.props.article_id)
     }
     render() {
-        console.log(this.state.article)
+        
         const {body, title, author, votes, comment_count} = this.state.article
+        const {errMessage} = this.state
+        if(this.state.isLoading === true) {
+            return <img className='loading' src='https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47jsvriuti9367kth1dv181fu679bvvaj9ock6ptyl&rid=giphy.gif' alt='loading' />
+        }
+        if(errMessage) {return <ErrorDisplayer msg={errMessage} />}
         return (
             <div className='single-article-container'>
                 <h2 className='single-article-title'>{title}</h2>
@@ -25,7 +34,9 @@ class ArticleById extends Component {
     }
     fetchArticleById = (article_id) => {
         api.getArticleById(article_id).then((article) => {
-            this.setState({article})
+            this.setState({article, isLoading: false})
+        }).catch(({response:{data:{msg}}}) => {
+            this.setState({errMessage: msg, isLoading: false})
         })
     }
 }
