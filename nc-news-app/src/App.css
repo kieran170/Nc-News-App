@@ -40,3 +40,7 @@
 .error-message {
   text-align: center;
 }
+.error-link {
+    display: flex;
+    justify-content: center;
+}

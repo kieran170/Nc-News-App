@@ -3,11 +3,13 @@ import FilterButtons from './FilterButtons'
 import ArticlesCard from './ArticlesCard'
 import TrendingTopicsButtons from './TrendingTopicsButtons'
 import * as api from '../api'
+import ErrorDisplayer from './ErrorDisplayer';
 
 class ArticleList extends Component {
     state = {
         isLoading: true,
         articles: [],
+        errMessage: '',
     }
 
     componentDidMount = () => {
@@ -28,10 +30,11 @@ class ArticleList extends Component {
     }
 
     render() {
-        const {articles} = this.state;
-        if(this.state.articles.length === 0) {
+        const {articles, errMessage} = this.state;
+        if(this.state.isLoading === true) {
             return <img className='loading' src='https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47jsvriuti9367kth1dv181fu679bvvaj9ock6ptyl&rid=giphy.gif' alt='loading' />
         }
+        if(errMessage) {return <ErrorDisplayer msg={errMessage} />}
         return (
             <>
                 <FilterButtons handleOrderClick={this.handleOrderClick}/>
@@ -69,6 +72,8 @@ class ArticleList extends Component {
     handleTopic = (topic) => {
         api.getArticlesByTopic(topic).then((articles) => {
             this.setState({articles, isLoading: false})
+        }).catch(({response:{data:{msg}}}) => {
+            this.setState({errMessage: msg, isLoading: false})
         })
     }
 }
