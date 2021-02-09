@@ -2,11 +2,15 @@
   border: 2px black solid;
   text-align: center;
 }
+.header-link {
+  font-size: 50px;
+  text-decoration: none;
+}
 .buttons-container {
   border: 2px solid red;
   display: flex;
   justify-content: space-between;
-  margin-top: 10%;
+  margin-top: 2%;
 }
 .filter-buttons {
   width: 15%;
@@ -43,4 +47,25 @@
 .error-link {
     display: flex;
     justify-content: center;
+}
+.single-article-container {
+  border: 2px black solid;
+  height: 100vh;
+}
+.single-article-body {
+  margin: 5%;
+}
+.single-article-title {
+  text-align: center;
+}
+.single-comments {
+  display: inline-flex;
+  margin-top: 1%;
+  margin-left: 5%;
+
+}
+.single-author {
+  margin-bottom: 1%;
+  margin-left: 5%;
+  font-weight: bold;
 }

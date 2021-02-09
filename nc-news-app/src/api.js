@@ -69,3 +69,15 @@ export const getArticlesByTopic = (topic) => {
     return data.articles;
   })
 }
+
+export const getArticleById = (article_id) => {
+  return axios.get(`https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}`).then(({data})=> {
+    return data.article;
+  })
+}
+
+export const getArticlesByAuthor = (author) => {
+  return axios.get(`https://kieran-nc-news-app.herokuapp.com/api/articles?author=${author}`).then(({data})=> {
+    return data.articles;
+  })
+}
