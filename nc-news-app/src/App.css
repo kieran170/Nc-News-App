@@ -31,3 +31,6 @@
   border: 2px purple solid;
   padding: 2%;
 }
+.error-message {
+    text-align: center;
+}

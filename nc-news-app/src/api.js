@@ -58,3 +58,14 @@ export const postVote = (id, article_id) => {
     { inc_votes: 1 }
   );
 };
+
+export const getArticlesByTopic = (topic) => {
+  if (topic === 'homepage') {
+    return axios.get('https://kieran-nc-news-app.herokuapp.com/api/articles').then(({data}) => {
+      return data.articles;
+    })
+  }
+  return axios.get(`https://kieran-nc-news-app.herokuapp.com/api/articles?topic=${topic}`).then(({data}) => {
+    return data.articles;
+  })
+}

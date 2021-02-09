@@ -14,6 +14,15 @@ class ArticleList extends Component {
         this.fetchArticles()
     }
 
+    componentDidUpdate(prevProps) {
+        const topic = this.props.topic;
+        if (topic !== undefined && topic !== prevProps.topic) {
+            console.log(topic)
+            this.handleTopic(topic)
+        }
+
+    }
+
     render() {
         const {articles} = this.state;
         if(this.state.articles.length === 0) {
@@ -22,7 +31,7 @@ class ArticleList extends Component {
         return (
             <>
                 <FilterButtons handleOrderClick={this.handleOrderClick}/>
-                <TrendingTopicsButtons />
+                <TrendingTopicsButtons handleTopicClick={this.handleTopicClick}/>
                 <main className='articles-container'>
                     {articles.map((article, index) => {
                         return <ArticlesCard key={article.article_id} index={index} {...article} handleLikeClick={this.handleLikeClick}/>
@@ -51,6 +60,11 @@ class ArticleList extends Component {
             this.setState((currentState) => {
                 return currentState.articles
             })
+        })
+    }
+    handleTopic = (topic) => {
+        api.getArticlesByTopic(topic).then((articles) => {
+            this.setState({articles, isLoading: false})
         })
     }
 }
