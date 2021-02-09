@@ -43,9 +43,12 @@ class ArticleList extends Component {
     handleLikeClick = (event, index) => {
         event.preventDefault()
         const article_id = this.state.articles[index].article_id;
-        api.postVote(article_id).then((articles) => {
-            const newArticles = articles.data.article
-            console.log(newArticles)
+        const articleUpdatedVotes = this.state.articles[index]
+        api.postVote(event.target.id, article_id).then((article) => {
+            articleUpdatedVotes.votes = article.data.article.votes
+            this.setState((currentState) => {
+                return currentState.articles
+            })
         })
     }
 }
