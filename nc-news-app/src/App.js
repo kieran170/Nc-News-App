@@ -13,8 +13,8 @@ function App() {
       <Router>
         <ArticleList path='/'/>
         <ArticleList path='/:topic/articles'/>
-        <ArticleById path='/article/*'/>
-        <ArticleByAuthor path='/:author/articles' />
+        <ArticleById path='/article/:article_id'/>
+        <ArticleByAuthor path='/articles-by-author/:author' />
         <ErrorDisplayer default/>
       </Router>
     </div>
