@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Buttons = ({handleOrderClick}) => {
+const FilterButtons = ({handleOrderClick}) => {
     return (
         <div className='buttons-container'>
             <button id='asc' onClick={handleOrderClick} className='filter-buttons'>Oldest Article</button>
@@ -13,4 +13,4 @@ const Buttons = ({handleOrderClick}) => {
     );
 };
 
-export default Buttons;
+export default FilterButtons;

@@ -1,29 +1,33 @@
 .header {
-    border: 2px black solid;
-    text-align: center;
+  border: 2px black solid;
+  text-align: center;
 }
 .buttons-container {
-    border: 2px solid red;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10%;
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
 }
 .filter-buttons {
-    width: 15%;
-    font-size: 9px;
+  width: 15%;
+  font-size: 9px;
 }
 .articles-container {
-    border: 2px green solid;
+  border: 2px green solid;
 }
 .article-card {
-    border: 1px blue solid;
-    padding: 2%;
+  border: 1px blue solid;
+  padding: 2%;
 }
 .loading {
-    height: 300px;
-    display: flex;
-    justify-content: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
 }
 .article-title {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+.trending-topic-container {
+  border: 2px purple solid;
+  padding: 2%;
 }

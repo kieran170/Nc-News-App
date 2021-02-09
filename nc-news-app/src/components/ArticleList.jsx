@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Buttons from './Buttons'
+import FilterButtons from './FilterButtons'
 import ArticlesCard from './ArticlesCard'
+import TrendingTopicsButtons from './TrendingTopicsButtons'
 import * as api from '../api'
 
 class ArticleList extends Component {
@@ -20,7 +21,8 @@ class ArticleList extends Component {
         }
         return (
             <>
-                <Buttons handleOrderClick={this.handleOrderClick}/>
+                <FilterButtons handleOrderClick={this.handleOrderClick}/>
+                <TrendingTopicsButtons />
                 <main className='articles-container'>
                     {articles.map((article, index) => {
                         return <ArticlesCard key={article.article_id} index={index} {...article} handleLikeClick={this.handleLikeClick}/>
