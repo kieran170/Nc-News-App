@@ -9,8 +9,9 @@ class AddComment extends Component {
     }
 
     render() {
+        const {article_id} =this.props
         return (
-        <form onSubmit={this.handleSubmit} id='commentForm'>
+        <form onSubmit={(event)=>{this.props.handleSubmit(event, this.state.newComment, article_id)}} id='commentForm'>
             <h2 className='post-comment-title' >Post A Comment</h2>
             <textarea rows='4' cols='43' name='comment' form='commentForm' placeholder='Add comment here' value={this.state.newComment} onChange={this.handleChange}></textarea>
             <button className='post-comment-button'>Submit Comment</button>
@@ -19,21 +20,12 @@ class AddComment extends Component {
         );
     }
     handleChange = (event) => {
-        this.setState({newComment: event.target.value})
-    }
-    handleSubmit = (event) => {
-        event.preventDefault()
         const regex = /.+/
-        const article_id = this.props.article_id
         const comment = this.state.newComment
-        if(regex.test(comment)){
-            api.postComment(article_id, comment).then(() => {
-                this.setState({newComment: '', failedRegex: false})
-            })
-        } else {
+        if(!regex.test(comment)){
             this.setState({failedRegex: true})
         }
-        
+        this.setState({newComment: event.target.value, failedRegex:true})
     }
 }
 

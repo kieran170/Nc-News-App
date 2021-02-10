@@ -14,7 +14,7 @@ class ArticleById extends Component {
         article: {},
         errMessage: '',
         isLoading: true,
-        comments: []
+        comments: [],
     }
 
     componentDidMount() {
@@ -22,10 +22,7 @@ class ArticleById extends Component {
         this.fetchArticleComments(this.props.article_id)
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log('updating')
-        console.log(prevState)
-    }
+    
     render() {
         const {body, title, author, votes, comment_count, article_id} = this.state.article
         const {errMessage, comments} = this.state
@@ -36,7 +33,7 @@ class ArticleById extends Component {
         return (
             <>
             <SingleArticleCard article={this.state.article}/>
-            <AddComment article_id={article_id}/>
+            <AddComment handleSubmit={this.handleSubmit} article_id={article_id}/>
               <ul className='all-comments-container'>
                   <h3 className='article-comment-title'>Comments</h3>
                   {comments.map((comment) => {
@@ -45,7 +42,7 @@ class ArticleById extends Component {
                                 <p className='single-comment' >{comment.body}</p>
                                 <p className='comment-author'>Author: {comment.author}</p>
                                 <LikeCounter name='comments' id={comment.comment_id} votes={comment.votes}/>
-                                {comment.author === 'jessjelly' ? <DeleteComment comment_id={comment.comment_id} /> : null}
+                                {comment.author === 'jessjelly' ? <DeleteComment comment_id={comment.comment_id} handleDelete={this.handleDelete} comment_id={comment.comment_id} /> : null}
                             </li>
                       )
                   })}
@@ -64,6 +61,31 @@ class ArticleById extends Component {
         api.getArticleComments(article_id).then((comments) => {
             this.setState({comments, isLoading: false})
         })
+    }
+    handleSubmit = (event, newComment, article_id) => {
+        event.preventDefault()
+        const regex = /.+/
+        if(regex.test(newComment)){
+            api.postComment(article_id, newComment).then((comment) => {
+                this.setState((currentState) => {
+                    return {
+                        comments: [comment, ...currentState.comments]
+                    } 
+                })
+            })
+        }
+    }
+    handleDelete = (event, comment_id) => {
+        event.preventDefault()
+        api.deleteComment(comment_id).then(() => {
+            const updatedComments = this.state.comments.filter(comment => comment.comment_id !== comment_id)
+            this.setState(()=> {
+                return {
+                    comments: updatedComments
+                }
+            })
+        })
+
     }
 }
 

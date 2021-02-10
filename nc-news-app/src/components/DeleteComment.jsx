@@ -1,19 +1,11 @@
-import React, { Component } from 'react';
-import * as api from '../api'
+import React from 'react';
 
-class DeleteComment extends Component {
-    render() {
-        return (
-            <div>
-               <button onClick={this.handleClick} >Delete</button> 
-            </div>
-        );
-    }
-    handleClick = (event) => {
-        event.preventDefault()
-        api.deleteComment(this.props.comment_id)
-
-    }
-}
+const DeleteComment = (props) => {
+    return (
+        <div>
+            <button onClick={(event)=>{props.handleDelete(event, props.comment_id)}} >Delete</button>
+        </div>
+    );
+};
 
 export default DeleteComment;
