@@ -24,7 +24,7 @@ class ArticleById extends Component {
 
     
     render() {
-        const {body, title, author, votes, comment_count, article_id} = this.state.article
+        const {article_id} = this.state.article
         const {errMessage, comments} = this.state
         if(this.state.isLoading === true) {
             return <Loader />
