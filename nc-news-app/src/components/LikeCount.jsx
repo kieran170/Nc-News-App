@@ -14,10 +14,10 @@ class LinkCount extends Component {
         const {voteChange, errMessage} = this.state
 
         return (
-            <div>
-                <p>Votes: {votes + voteChange}</p>
-                <button disabled={voteChange === 1} onClick={() => {this.handleLikeClick(1)}}>👍 </button>
-                <button disabled={voteChange === -1} onClick={() => {this.handleLikeClick(-1)}}>👎 </button>
+            <div className='likes-container'>
+                <p className='vote-count'>Votes: {votes + voteChange}</p>
+                <button className='like-buttons' disabled={voteChange === 1} onClick={() => {this.handleLikeClick(1)}}>👍 </button>
+                <button className='like-buttons' disabled={voteChange === -1} onClick={() => {this.handleLikeClick(-1)}}>👎 </button>
             </div>
         );
     }

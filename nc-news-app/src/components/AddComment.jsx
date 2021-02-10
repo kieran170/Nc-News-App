@@ -10,16 +10,16 @@ class AddComment extends Component {
 
     render() {
         const {article_id} = this.props
-        const {newComment, failedRegex} = this.state
+        const {newComment} = this.state
         return (
         <form onSubmit={(event)=>{
             this.props.handleSubmit(event, newComment, article_id)
             this.setState({newComment: ''})
             }} id='commentForm'>
             <h2 className='post-comment-title' >Post A Comment</h2>
-            <textarea className='comment-box' rows='4' cols='43' name='comment' form='commentForm' placeholder='Add comment here' value={newComment} onChange={this.handleChange}></textarea>
+            <textarea className='comment-box' rows='4' cols='43' name='comment' form='commentForm' placeholder='Add comment here' value={newComment} onBlur={this.handleBlur} onChange={this.handleChange}></textarea>
             <button className='post-comment-button'>Submit Comment</button>
-            {failedRegex === true && newComment === '' ? <p>Please add text</p> : null}
+            {this.state.failedRegex === true && newComment === '' ? <p>Please add text</p> : null}
         </form>
         );
     }
@@ -29,7 +29,12 @@ class AddComment extends Component {
         if(!regex.test(comment)){
             this.setState({failedRegex: true})
         }
-        this.setState({newComment: event.target.value, failedRegex:true})
+        this.setState({newComment: event.target.value, failedRegex:false})
+    }
+    handleBlur = () => {
+        if(!this.state.newComment) {
+            this.setState({failedRegex: true})
+        }
     }
 }
 

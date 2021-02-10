@@ -37,9 +37,8 @@ class ArticleList extends Component {
         }
         if(errMessage) {return <ErrorDisplayer msg={errMessage} />}
         return (
-            <>  
+            <>  <TrendingTopicsButtons handleTopicClick={this.handleTopicClick}/>
                 {this.props.path === '/' ? <FilterButtons handleOrderClick={this.handleOrderClick}/> : null}
-                <TrendingTopicsButtons handleTopicClick={this.handleTopicClick}/>
                 <main className='articles-container'>
                     {articles.map((article, index) => {
                         return <ArticlesCard key={article.article_id} index={index} {...article} handleLikeClick={this.handleLikeClick}/>
