@@ -3,6 +3,7 @@ import * as api from '../api'
 import ArticlesCard from './ArticlesCard'
 import ErrorDisplayer from './ErrorDisplayer'
 import Loader from './Loader'
+import TrendingTopics from './TrendingTopicsButtons';
 
 class ArticleByAuthor extends Component {
 
@@ -22,11 +23,14 @@ class ArticleByAuthor extends Component {
         }
         if(errMessage) {return <ErrorDisplayer msg={errMessage} />}
         return (
-            <main>
-                {articles.map((article, index) => {
-                return <ArticlesCard key={article.article_id} index={index} {...article} />
-                    })}
-            </main>
+            <>
+                <TrendingTopics />
+                <main className='author-list'>
+                    {articles.map((article, index) => {
+                    return <ArticlesCard key={article.article_id} index={index} {...article} />
+                        })}
+                </main>
+            </>
         );
     }
     fetchArticlesByAuthor = (author) => {

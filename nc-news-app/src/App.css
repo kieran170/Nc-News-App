@@ -1,6 +1,7 @@
 .header {
   border: 1px black solid;
   text-align: center;
+  width: 100%;
 }
 .header-link {
   font-size: 50px;
@@ -8,20 +9,27 @@
 }
 
 .buttons-container {
-  display: flex;
-  margin-top: 2%;
+  margin-top: 3%;
+  text-align: center;
 }
 .filter-buttons {
-  width: 17%;
-  font-size: 9px;
-  margin-bottom: 1%;
+  font-size: 12px;
+  width: 30%;
+  height: 42px;
+  border-radius: 10px;
+  margin: 1%;
 }
 .articles-container {
-  border: 2px green solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .article-card {
-  border: 1px blue solid;
+  border-radius: 10px;
   padding: 2%;
+  margin-top: 5%;
+  box-shadow: 2px 2px 12px 2px #cccccc;
+  width: 90%;
 }
 .loading {
   height: 300px;
@@ -36,7 +44,7 @@
 .article-date {
   font-size: 13px;
   display: inline;
-  margin-left: 30%;
+  margin-left: 25%;
 }
 .article-comments {
   width: 27%;
@@ -71,12 +79,13 @@
 .single-article-container {
   border: 1px black solid;
   margin-top: 5%;
+  padding-right: 5%;
 }
 .single-article-body {
   margin: 5%;
 }
 .single-article-title {
-  text-align: center;
+  margin-left: 5%;
 }
 .single-comments {
   display: inline-flex;
@@ -97,10 +106,12 @@
 }
 .article-comment-title {
   text-align: center;
+  margin-top: 15%;
 }
 .single-comment-container {
-  border: 1px black solid;
   margin-bottom: 5%;
+  box-shadow: 2px 2px 12px 2px #cccccc;
+  padding: 5%;
 }
 .single-comment {
   margin: 5%;
@@ -129,4 +140,20 @@
 }
 .post-comment-title {
   text-align: center;
+}
+.author-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.comment-author {
+  margin-left: 5%;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.post-comment-button {
+  display: flex;
+  margin: 0 auto;
+  height: 48px;
+  display: block;
 }
