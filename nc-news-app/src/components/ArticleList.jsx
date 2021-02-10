@@ -4,6 +4,7 @@ import ArticlesCard from './ArticlesCard'
 import TrendingTopicsButtons from './TrendingTopicsButtons'
 import * as api from '../api'
 import ErrorDisplayer from './ErrorDisplayer';
+import Loader from './Loader';
 
 class ArticleList extends Component {
     state = {
@@ -32,7 +33,7 @@ class ArticleList extends Component {
     render() {
         const {articles, errMessage} = this.state;
         if(this.state.isLoading === true) {
-            return <img className='loading' src='https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47jsvriuti9367kth1dv181fu679bvvaj9ock6ptyl&rid=giphy.gif' alt='loading' />
+            return <Loader />
         }
         if(errMessage) {return <ErrorDisplayer msg={errMessage} />}
         return (
@@ -56,17 +57,6 @@ class ArticleList extends Component {
     handleOrderClick = (event) => {
         api.getAllArticles(event.target.id).then((articles) => {
             this.setState({articles, isLoading: false})
-        })
-    }
-    handleLikeClick = (event, index) => {
-        event.preventDefault()
-        const article_id = this.state.articles[index].article_id;
-        api.postVote(event.target.id, article_id).then((article) => {
-            this.setState((currentState) => {
-                const articleUpdatedVotes = currentState.articles[index]
-                articleUpdatedVotes.votes = article.data.article.votes
-                return currentState;
-            })
         })
     }
     handleTopic = (topic) => {

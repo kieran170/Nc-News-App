@@ -1,6 +1,6 @@
 import React from 'react';
 import LikeCount from './LikeCount'
-import {Link, Router} from '@reach/router'
+import {Link} from '@reach/router'
 
 const ArticlesCard = (props) => {
     return (
@@ -9,9 +9,8 @@ const ArticlesCard = (props) => {
             <p>Topic: {props.topic}</p>
             <Link to={`/articles-by-author/${props.author}`}>Author: {props.author}</Link>
             <p>{props.created_at}</p>
-            <p>Votes: {props.votes}</p>
             <p>comments: {props.comment_count}</p>
-            <LikeCount handleLikeClick={props.handleLikeClick} location={props.index}/>
+            <LikeCount id={props.article_id} votes={props.votes}/>
         </section>
     );
 };

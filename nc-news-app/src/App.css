@@ -71,9 +71,11 @@
   border: 2px red solid;
 }
 .all-comments-container {
-  border: 2px black solid;
   list-style: none;
   padding-left: 0px;
+}
+.article-comment-title {
+  text-align: center;
 }
 .single-comment-container {
   border: 2px black solid;
@@ -88,3 +90,11 @@
 .comment-vote {
   margin-left: 5%;
 }
+.article-like-button {
+  margin-bottom: 5%;
+  margin-left: 5%;
+}
+.post-comment-title{
+  text-align: center;
+}
+

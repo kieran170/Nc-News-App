@@ -1,13 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
+import * as api from '../api'
 
-const LikeCount = ({handleLikeClick, location}) => {
-    return (
-        <>
-            <button id='add' onClick={(event) => {handleLikeClick(event, location)}}>👍 </button>
-            <button id='down' onClick={(event) => {handleLikeClick(event, location)}}>👎 </button>
-        </>
-    );
-};
+class LinkCount extends Component {
 
-export default LikeCount;
+    state = {
+        voteChange: 0,
+        errMessage: '',
+    }
+
+
+    render() {
+        const {votes} = this.props
+        const {voteChange, errMessage} = this.state
+
+        return (
+            <div>
+                <p>Votes: {votes + voteChange}</p>
+                <button disabled={voteChange === 1} onClick={() => {this.handleLikeClick(1)}}>👍 </button>
+                <button disabled={voteChange === -1} onClick={() => {this.handleLikeClick(-1)}}>👎 </button>
+            </div>
+        );
+    }
+
+    handleLikeClick = (voteDiff) => {
+        const {id, name} = this.props
+        this.setState((currentState) => {
+            return {voteChange: currentState.voteChange + voteDiff}
+        })
+        if(name) {
+            api.updateCommentVote(voteDiff, id).catch(console.log)
+        } else {
+            api.updateVote(voteDiff, id).catch(console.log)
+        }
+        
+    }
+}
+
+export default LinkCount;
+
 

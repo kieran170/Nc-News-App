@@ -1,4 +1,5 @@
 import axios from "axios";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 export const getAllArticles = (query) => {
   if (query === "comment_count_desc") {
@@ -46,18 +47,16 @@ export const getAllArticles = (query) => {
     });
 };
 
-export const postVote = (id, article_id) => {
-  if (id === "down") {
-    return axios.patch(
-      `https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}`,
-      { inc_votes: -1 }
-    );
-  }
+export const updateVote = (value, id,) => {
   return axios.patch(
-    `https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}`,
-    { inc_votes: 1 }
-  );
-};
+    `https://kieran-nc-news-app.herokuapp.com/api/articles/${id}`,
+    { inc_votes: value}
+    );
+}
+
+export const updateCommentVote = (value, id,) => {
+    return axios.patch(`https://kieran-nc-news-app.herokuapp.com/api/comments/${id}`, {inc_votes: value})
+  };
 
 export const getArticlesByTopic = (topic) => {
   if (topic === "homepage") {
@@ -101,3 +100,13 @@ export const getArticlesByAuthor = (author) => {
       return data.articles;
     });
 };
+
+export const postComment = (article_id, comment) => {
+  return axios.post(`https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`, {username: 'jessjelly', body: comment}).then(({data})=> {
+    return data.comment;
+  })
+}
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(`https://kieran-nc-news-app.herokuapp.com/api/comments/${comment_id}`)
+}
