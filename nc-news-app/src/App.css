@@ -176,9 +176,6 @@
   .App {
     background-color: aliceblue;
   }
-  .failed-regex-text {
-    margin-left: 40%;
-  }
   .articles-container {
     align-items: normal;
   }
