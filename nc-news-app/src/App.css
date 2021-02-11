@@ -16,7 +16,7 @@
 .filter-buttons {
   font-size: 12px;
   width: 30%;
-  height: 42px;
+  height: 52px;
   border-radius: 10px;
   margin: 1%;
 }
@@ -142,8 +142,8 @@
   justify-content: flex-end;
 }
 .like-buttons {
-  height: fit-content;
-  margin-top: 3%;
+  height: 48px;
+  width: 40px;
 }
 .vote-count {
 }
@@ -164,9 +164,24 @@
   font-weight: bold;
   margin-bottom: 0px;
 }
+.failed-regex-text {
+  font-size: 15px;
+}
 .post-comment-button {
   display: flex;
   margin: 0 auto;
   height: 48px;
   display: block;
+}
+
+@media only screen and (min-width: 768px) {
+
+
+
+
+
+
+
+
+
 }
