@@ -13,7 +13,7 @@ where you are able to post and delete comments made by your user,
 or it will take you to a list of articles only published by the 
 auther you have clicked on. 
 
-live URL - ...placeholder...,
+live URL - https://nc-newss-app.netlify.app/
 
 Backend api GitHub repo - https://github.com/kieran170/be-nc-news,
 Backend api live URL - https://kieran-nc-news-app.herokuapp.com/api/
