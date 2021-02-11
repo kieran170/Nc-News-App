@@ -12,7 +12,7 @@ class AddComment extends Component {
         const {article_id} = this.props
         const {newComment} = this.state
         return (
-        <form onSubmit={(event)=>{
+        <form className='form-container' onSubmit={(event)=>{
             this.props.handleSubmit(event, newComment, article_id)
             this.setState({newComment: ''})
             }} id='commentForm'>

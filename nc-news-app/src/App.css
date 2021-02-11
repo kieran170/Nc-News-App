@@ -62,9 +62,6 @@
   display: flex;
   text-decoration: none;
 }
-.trending-topic-container {
-  
-}
 .trending-topic-button {
   margin: 5%;
 }
@@ -144,8 +141,10 @@
 .like-buttons {
   height: 48px;
   width: 40px;
+  margin-right: 5px;
 }
 .vote-count {
+  padding-right: 10px;
 }
 .article-like-button {
   margin-bottom: 5%;
@@ -175,45 +174,53 @@
 }
 
 @media only screen and (min-width: 768px) {
-.App {
-  background-color: aliceblue;
-}
-.comment-box {
-  margin-left: 40%;
-}
-.failed-regex-text {
-  margin-left: 40%;
-}
-.articles-container {
-  align-items: normal;
-}
-.single-article-title {
-  text-align: center;
-}
-.article-comment-title {
-  margin-top: 0px;
-}
-.single-article-container {
-  border: 1px black solid;
-  background: whitesmoke;
-  width: 55%;
-  margin: 0 auto;
-}
-.single-comment-container {
-  background-color: whitesmoke;
-  width: 51%;
-  margin: 20px auto;
-  padding: 1%;
-}
-.article-card {
-  width: 55%;
-  margin-top: 1%;
-}
-.buttons-container {
-  width: 60%;
-}
-
-
-
-
+  .App {
+    background-color: aliceblue;
+  }
+  .failed-regex-text {
+    margin-left: 40%;
+  }
+  .articles-container {
+    align-items: normal;
+  }
+  .single-article-title {
+    text-align: center;
+  }
+  .article-comment-title {
+    margin-top: 0px;
+  }
+  .single-article-container {
+    border: 1px black solid;
+    background: whitesmoke;
+    width: 55%;
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+  .single-comment-container {
+    background-color: whitesmoke;
+    width: 51%;
+    margin: 20px auto;
+    padding: 1%;
+  }
+  .article-card {
+    width: 55%;
+    margin-top: 1%;
+  }
+  .buttons-container {
+    width: 60%;
+  }
+  .trending-topic-container {
+    width: 35%;
+    position: fixed;
+    right: 35px;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 12px 2px #cccccc;
+    margin-top: 1%;
+  }
+  .author-list {
+    display: block;
+  }
+  .form-container {
+    text-align: center;
+  }
 }
