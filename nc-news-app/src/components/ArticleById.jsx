@@ -33,7 +33,7 @@ class ArticleById extends Component {
         return (
             <>
             <SingleArticleCard article={this.state.article}/>
-            <AddComment handleSubmit={this.handleSubmit} article_id={article_id}/>
+            <AddComment username={this.props.username} handleSubmit={this.handleSubmit} article_id={article_id}/>
               <ul className='all-comments-container'>
                   <h3 className='article-comment-title'>Comments({this.state.comments.length})</h3>
                   {comments.map((comment) => {
@@ -42,7 +42,7 @@ class ArticleById extends Component {
                                 <p className='single-comment' >{comment.body}</p>
                                 <p className='comment-author'>Author: {comment.author}</p>
                                 <LikeCounter name='comments' id={comment.comment_id} votes={comment.votes}/>
-                                {comment.author === 'jessjelly' ? <DeleteComment comment_id={comment.comment_id} handleDelete={this.handleDelete} comment_id={comment.comment_id} /> : null}
+                                {comment.author === 'jessjelly' && this.props.username !== '' ? <DeleteComment comment_id={comment.comment_id} handleDelete={this.handleDelete} comment_id={comment.comment_id} /> : null}
                             </li>
                       )
                   })}
@@ -62,11 +62,11 @@ class ArticleById extends Component {
             this.setState({comments, isLoading: false})
         })
     }
-    handleSubmit = (event, newComment, article_id) => {
+    handleSubmit = (event, newComment, article_id, username) => {
         event.preventDefault()
         const regex = /.+/
         if(regex.test(newComment)){
-            api.postComment(article_id, newComment).then((comment) => {
+            api.postComment(article_id, newComment, username).then((comment) => {
                 this.setState((currentState) => {
                     return {
                         comments: [comment, ...currentState.comments]

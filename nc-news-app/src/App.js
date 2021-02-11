@@ -6,19 +6,36 @@ import ArticleByAuthor from './components/ArticleByAuthor'
 import ErrorDisplayer from './components/ErrorDisplayer'
 import {Router} from '@reach/router'
 
-function App() {
-  return (
-    <div className="App">
+import React, { Component } from 'react';
+import Username from "./components/Username";
+
+class App extends Component {
+
+  state = {
+    username: 'jessjelly'
+  }
+
+  render() {
+    return (
+      <div className="App">
+      <Username username={this.state.username} login={this.login} logout={this.logout}/>
       <Header />
       <Router>
         <ArticleList path='/'/>
         <ArticleList path='/:topic/articles'/>
-        <ArticleById path='/article/:article_id'/>
+        <ArticleById username={this.state.username} path='/article/:article_id'/>
         <ArticleByAuthor path='/articles-by-author/:author' />
         <ErrorDisplayer default/>
       </Router>
     </div>
-  );
+    );
+  }
+  logout = () => {
+    this.setState({username: ''})
+  }
+  login = () => {
+    this.setState({username: 'jessjelly'})
+  }
 }
 
 export default App;

@@ -101,8 +101,8 @@ export const getArticlesByAuthor = (author) => {
     });
 };
 
-export const postComment = (article_id, comment) => {
-  return axios.post(`https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`, {username: 'jessjelly', body: comment}).then(({data})=> {
+export const postComment = (article_id, comment, username) => {
+  return axios.post(`https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`, {username: username, body: comment}).then(({data})=> {
     return data.comment;
   })
 }

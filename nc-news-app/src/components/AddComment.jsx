@@ -9,17 +9,17 @@ class AddComment extends Component {
     }
 
     render() {
-        const {article_id} = this.props
+        const {article_id, username} = this.props
         const {newComment} = this.state
         return (
         <form className='form-container' onSubmit={(event)=>{
-            this.props.handleSubmit(event, newComment, article_id)
+            this.props.handleSubmit(event, newComment, article_id, username)
             this.setState({newComment: ''})
             }} id='commentForm'>
             <h2 className='post-comment-title' >Post A Comment</h2>
             {this.state.failedRegex === true && newComment === '' ? <p className='failed-regex-text'>Please add text</p> : null}
             <textarea className='comment-box' rows='4' cols='43' name='comment' form='commentForm' placeholder='Add comment here' value={newComment} onBlur={this.handleBlur} onChange={this.handleChange}></textarea>
-            <button className='post-comment-button'>Submit Comment</button>
+            {username !== '' ? <button className='post-comment-button'>Submit Comment</button> : <p>Please Login To Post A Comment</p> }
         </form>
         );
     }
