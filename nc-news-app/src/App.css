@@ -1,7 +1,8 @@
 .header {
-  border: 1px black solid;
   text-align: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .header-link {
   font-size: 50px;
@@ -30,6 +31,7 @@
   margin-top: 5%;
   box-shadow: 2px 2px 12px 2px #cccccc;
   width: 90%;
+  background-color: whitesmoke;
 }
 .loading {
   height: 300px;
@@ -61,13 +63,25 @@
   text-decoration: none;
 }
 .trending-topic-container {
-  padding: 2%;
+  
 }
 .trending-topic-button {
   margin: 5%;
 }
+.topics-buttons {
+  display: flex;
+  justify-content: space-around;
+}
 .trending-topic-title {
   text-align: center;
+  margin-bottom: 5px;
+}
+.trending-topic-button-home {
+  display: flex;
+  justify-content: center;
+  margin-top: 9px;
+  padding-right: 20px;
+  font-size: xx-large;
 }
 .error-message {
   text-align: center;
@@ -77,7 +91,6 @@
   justify-content: center;
 }
 .single-article-container {
-  border: 1px black solid;
   margin-top: 5%;
   padding-right: 5%;
 }

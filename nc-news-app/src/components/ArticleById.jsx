@@ -35,7 +35,7 @@ class ArticleById extends Component {
             <SingleArticleCard article={this.state.article}/>
             <AddComment handleSubmit={this.handleSubmit} article_id={article_id}/>
               <ul className='all-comments-container'>
-                  <h3 className='article-comment-title'>Comments</h3>
+                  <h3 className='article-comment-title'>Comments({this.state.comments.length})</h3>
                   {comments.map((comment) => {
                       return(
                             <li className='single-comment-container' key={comment.comment_id}>
