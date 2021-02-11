@@ -175,11 +175,42 @@
 }
 
 @media only screen and (min-width: 768px) {
+.App {
+  background-color: aliceblue;
+}
 .comment-box {
   margin-left: 40%;
 }
 .failed-regex-text {
   margin-left: 40%;
+}
+.articles-container {
+  align-items: normal;
+}
+.single-article-title {
+  text-align: center;
+}
+.article-comment-title {
+  margin-top: 0px;
+}
+.single-article-container {
+  border: 1px black solid;
+  background: whitesmoke;
+  width: 55%;
+  margin: 0 auto;
+}
+.single-comment-container {
+  background-color: whitesmoke;
+  width: 51%;
+  margin: 20px auto;
+  padding: 1%;
+}
+.article-card {
+  width: 55%;
+  margin-top: 1%;
+}
+.buttons-container {
+  width: 60%;
 }
 
 
