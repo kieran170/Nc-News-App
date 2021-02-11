@@ -180,9 +180,7 @@
     margin-left: 40%;
   }
   .articles-container {
-    align-items: flex-end;
-    transform: translateY(-250px);
-    padding-right: 50px;
+    align-items: normal;
   }
   .single-article-title {
     text-align: center;
@@ -212,19 +210,16 @@
   }
   .trending-topic-container {
     width: 35%;
+    position: fixed;
+    right: 35px;
     background-color: whitesmoke;
     box-shadow: 2px 2px 12px 2px #cccccc;
-    border-radius: 10px;
-    margin-left: 50px;
+    margin-top: 1%;
   }
   .author-list {
     display: block;
   }
   .form-container {
     text-align: center;
-  }
-  .topics-buttons {
-    display: flex;
-    flex-direction: column;
   }
 }
