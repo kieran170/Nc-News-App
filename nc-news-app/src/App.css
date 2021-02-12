@@ -50,8 +50,8 @@
 }
 .article-date {
   font-size: 13px;
-  display: inline;
-  margin-left: 25%;
+  display: flex;
+  justify-content: flex-end;
 }
 .article-comments {
   width: 27%;
