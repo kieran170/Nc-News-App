@@ -66,6 +66,7 @@
 .article-author {
   display: flex;
   text-decoration: none;
+  width: 22%;
 }
 .trending-topic-button {
   margin: 5%;
@@ -156,10 +157,14 @@
   margin-right: 5px;
   border-radius: 10px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 .like-buttons:hover {
     background-color: #2766a1;
     color: white;
+}
+.like-buttons:disabled {
+  pointer-events: none;
 }
 .vote-count {
   padding-right: 10px;
@@ -271,6 +276,7 @@
     margin-top: 1%;
     border-radius: 10px;
     margin-top: 0;
+    height: 110px;
   }
   .author-list {
     display: block;
@@ -281,14 +287,13 @@
   .trending-topic-button {
     border: 1px black solid;
     border-radius: 10px;
-    padding: 2%;
+    padding: 1%;
     background-color: #EFEFEF
   }
   .hotttest-article-container {
     width: 35%;
     position: fixed;
     right: 40px;
-    margin-top: 50px;
     background-color: whitesmoke;
     box-shadow: 2px 2px 12px 2px #cccccc;
     border-radius: 10px;
@@ -301,6 +306,7 @@
   .hottest-article-header {
     display: flex;
     justify-content: center;
+    margin-top: 0;
   }
   .hottest-article-title {
     text-decoration: none;
@@ -313,5 +319,8 @@
   .hottest-article-text {
     margin-left: 135px;
     display: flex;
+  }
+  .trending-topic-title {
+    margin-top: 0;
   }
 }
