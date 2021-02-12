@@ -17,7 +17,7 @@ class AddComment extends Component {
             this.setState({newComment: ''})
             }} id='commentForm'>
             <h2 className='post-comment-title' >Post A Comment</h2>
-            {this.state.failedRegex === true && newComment === '' ? <p className='failed-regex-text'>Please add text</p> : null}
+            {this.state.failedRegex === true && newComment === '' ? <p className='failed-regex-text'>Please add text before submitting a comment</p> : null}
             <textarea className='comment-box' rows='4' cols='43' name='comment' form='commentForm' placeholder='Add comment here' value={newComment} onBlur={this.handleBlur} onChange={this.handleChange}></textarea>
             {username !== '' ? <button className='post-comment-button'>Submit Comment</button> : <p>Please Login To Post A Comment</p> }
         </form>
