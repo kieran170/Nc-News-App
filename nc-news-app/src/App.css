@@ -274,9 +274,9 @@
     background-color: #EFEFEF
   }
   .hotttest-article-container {
-    width: 30%;
+    width: 35%;
     position: fixed;
-    right: 80px;
+    right: 40px;
     margin-top: 200px;
     background-color: whitesmoke;
     box-shadow: 2px 2px 12px 2px #cccccc;
@@ -284,7 +284,8 @@
   }
   .hottest-article-image {
     width: 400px;
-    margin-left: 20px;
+    display: block;
+    margin: auto;
   }
   .hottest-article-title {
     text-align: center;
@@ -296,5 +297,8 @@
     margin-bottom: 15px;
     font-weight: bold;
     font-size: 30px;
+  }
+  .hottest-article-text {
+    margin-left: 135px;
   }
 }
