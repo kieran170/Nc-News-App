@@ -17,7 +17,7 @@ class ArticleList extends Component {
     componentDidMount = () => {
             const topic = this.props.topic;
             if (topic === undefined) {
-              this.fetchArticles()
+              this.fetchArticles()  
             } else {
                 this.handleTopic(topic)
             }
@@ -38,9 +38,10 @@ class ArticleList extends Component {
         }
         if(errMessage) {return <ErrorDisplayer msg={errMessage} />}
         return (
-            <>  <TrendingTopicsButtons handleTopicClick={this.handleTopicClick}/>
-                <HottestArticle articles={this.state.articles}/>
+            <>  
+                <TrendingTopicsButtons handleTopicClick={this.handleTopicClick}/>
                 {this.props.path === '/' ? <FilterButtons handleOrderClick={this.handleOrderClick}/> : null}
+                {this.props.path === '/' ? <HottestArticle articles={this.state.articles}/> : null}
                 <main className='articles-container'>
                     {articles.map((article, index) => {
                         return <ArticlesCard key={article.article_id} index={index} {...article} handleLikeClick={this.handleLikeClick}/>
