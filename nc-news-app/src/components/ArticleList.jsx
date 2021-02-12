@@ -40,8 +40,8 @@ class ArticleList extends Component {
         return (
             <>  
                 <TrendingTopicsButtons handleTopicClick={this.handleTopicClick}/>
-                {this.props.path === '/' ? <FilterButtons handleOrderClick={this.handleOrderClick}/> : null}
-                {this.props.path === '/' ? <HottestArticle articles={this.state.articles}/> : null}
+                {this.props.path === '/' && <FilterButtons handleOrderClick={this.handleOrderClick}/>}
+                {this.props.path === '/' && <HottestArticle articles={this.state.articles}/>}
                 <main className='articles-container'>
                     {articles.map((article, index) => {
                         return <ArticlesCard key={article.article_id} index={index} {...article} handleLikeClick={this.handleLikeClick}/>

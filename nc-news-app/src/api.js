@@ -1,45 +1,48 @@
 import axios from "axios";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
+
+const request = axios.create({
+  baseURL : 'https://kieran-nc-news-app.herokuapp.com/api'
+})
 
 export const getAllArticles = (query) => {
   if (query === "comment_count_desc") {
-    return axios
+    return request
       .get(
-        "https://kieran-nc-news-app.herokuapp.com/api/articles?sort_by=comment_count"
+        "/articles?sort_by=comment_count"
       )
       .then(({ data }) => {
         return data.articles;
       });
   }
   if (query === "comment_count") {
-    return axios
+    return request
       .get(
-        "https://kieran-nc-news-app.herokuapp.com/api/articles?sort_by=comment_count"
+        "/articles?sort_by=comment_count"
       )
       .then(({ data }) => {
         return data.articles.reverse();
       });
   }
   if (query === "votes_desc") {
-    return axios
+    return request
       .get(
-        "https://kieran-nc-news-app.herokuapp.com/api/articles?sort_by=votes"
+        "/articles?sort_by=votes"
       )
       .then(({ data }) => {
         return data.articles.reverse();
       });
   }
   if (query === "votes") {
-    return axios
+    return request
       .get(
-        "https://kieran-nc-news-app.herokuapp.com/api/articles?sort_by=votes"
+        "/articles?sort_by=votes"
       )
       .then(({ data }) => {
         return data.articles;
       });
   }
-  return axios
-    .get("https://kieran-nc-news-app.herokuapp.com/api/articles", {
+  return request
+    .get("/articles", {
       params: { order: query },
     })
     .then(({ data }) => {
@@ -48,43 +51,43 @@ export const getAllArticles = (query) => {
 };
 
 export const updateVote = (value, id,) => {
-  return axios.patch(
-    `https://kieran-nc-news-app.herokuapp.com/api/articles/${id}`,
+  return request.patch(
+    `/articles/${id}`,
     { inc_votes: value}
     );
 }
 
 export const updateCommentVote = (value, id,) => {
-    return axios.patch(`https://kieran-nc-news-app.herokuapp.com/api/comments/${id}`, {inc_votes: value})
+    return request.patch(`/comments/${id}`, {inc_votes: value})
   };
 
 export const getArticlesByTopic = (topic) => {
   if (topic === "homepage") {
-    return axios
-      .get("https://kieran-nc-news-app.herokuapp.com/api/articles")
+    return request
+      .get("/articles")
       .then(({ data }) => {
         return data.articles;
       });
   }
-  return axios
-    .get(`https://kieran-nc-news-app.herokuapp.com/api/articles?topic=${topic}`)
+  return request
+    .get(`/articles?topic=${topic}`)
     .then(({ data }) => {
       return data.articles;
     });
 };
 
 export const getArticleById = (article_id) => {
-  return axios
-    .get(`https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}`)
+  return request
+    .get(`/articles/${article_id}`)
     .then(({ data }) => {
       return data.article;
     });
 };
 
 export const getArticleComments = (article_id) => {
-  return axios
+  return request
     .get(
-      `https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`
+      `/articles/${article_id}/comments`
     )
     .then(({ data }) => {
       return data.comments;
@@ -92,21 +95,19 @@ export const getArticleComments = (article_id) => {
 };
 
 export const getArticlesByAuthor = (author) => {
-  return axios
-    .get(
-      `https://kieran-nc-news-app.herokuapp.com/api/articles?author=${author}`
-    )
+  return request
+    .get(`/articles?author=${author}`)
     .then(({ data }) => {
       return data.articles;
     });
 };
 
 export const postComment = (article_id, comment, username) => {
-  return axios.post(`https://kieran-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`, {username: username, body: comment}).then(({data})=> {
+  return request.post(`/articles/${article_id}/comments`, {username: username, body: comment}).then(({data})=> {
     return data.comment;
   })
 }
 
 export const deleteComment = (comment_id) => {
-  return axios.delete(`https://kieran-nc-news-app.herokuapp.com/api/comments/${comment_id}`)
+  return request.delete(`/comments/${comment_id}`)
 }

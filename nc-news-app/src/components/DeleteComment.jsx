@@ -7,9 +7,9 @@ class DeleteComment extends Component {
     render() {
         return (
             <div>
-                {this.state.deleted === false ?<button onClick={(event)=>{
-                    this.props.handleDelete(event, this.props.comment_id)
-                    this.setState({deleted :true})}}>Delete</button> : null}
+                {this.state.deleted === false &&<button onClick={()=>{
+                    this.props.handleDelete( this.props.comment_id)
+                    this.setState({deleted :true})}}>Delete</button>}
             </div>
         );
     }

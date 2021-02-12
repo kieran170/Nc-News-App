@@ -42,7 +42,7 @@ class ArticleById extends Component {
                                 <p className='single-comment' >{comment.body}</p>
                                 <p className='comment-author'>Author: {comment.author}</p>
                                 <LikeCounter name='comments' id={comment.comment_id} votes={comment.votes}/>
-                                {comment.author === 'jessjelly' && this.props.username !== '' ? <DeleteComment comment_id={comment.comment_id} handleDelete={this.handleDelete} comment_id={comment.comment_id} /> : null}
+                                {comment.author === 'jessjelly' && this.props.username !== '' && <DeleteComment comment_id={comment.comment_id} handleDelete={this.handleDelete} comment_id={comment.comment_id} />}
                             </li>
                       )
                   })}
@@ -77,8 +77,7 @@ class ArticleById extends Component {
             })
         }
     }
-    handleDelete = (event, comment_id) => {
-        event.preventDefault()
+    handleDelete = (comment_id) => {
         api.deleteComment(comment_id).then(() => {
             const updatedComments = this.state.comments.filter(comment => comment.comment_id !== comment_id)
             this.setState(()=> {
