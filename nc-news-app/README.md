@@ -1,10 +1,10 @@
-To start app locally
-first you will need to clone the repo from https://github.com/kieran170/Nc-News-App 
-it will require node v14.15.0
-open terminal and run 'cd nc-news-app/'
-then run 'npm i' in the terminal,
-once everything is installed run 'npm start' in the terminal,
-app should open in browser and you can navigate around the app,
+To start app locally<br>
+first you will need to clone the repo from https://github.com/kieran170/Nc-News-App <br>
+it will require node v14.15.0<br>
+open terminal and run 'cd nc-news-app/'<br>
+then run 'npm i' in the terminal,<br>
+once everything is installed run 'npm start' in the terminal,<br>
+app should open in browser and you can navigate around the app,<br>
 
 The app allows you to see a list of all the articles on the home
 page, you can filter all the articles by votes, comments and 
