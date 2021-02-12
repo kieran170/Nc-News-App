@@ -28,9 +28,13 @@ class LinkCount extends Component {
             return {voteChange: currentState.voteChange + voteDiff}
         })
         if(name) {
-            api.updateCommentVote(voteDiff, id).catch(console.log)
+            api.updateCommentVote(voteDiff, id).catch(({response:{data:{msg}}}) => {
+                this.setState({errMessage: msg})
+            })
         } else {
-            api.updateVote(voteDiff, id).catch(console.log)
+            api.updateVote(voteDiff, id).catch(({response:{data:{msg}}}) => {
+                this.setState({errMessage: msg})
+            })
         }
         
     }

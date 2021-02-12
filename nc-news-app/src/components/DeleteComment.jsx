@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const DeleteComment = (props) => {
-    return (
-        <div>
-            <button onClick={(event)=>{props.handleDelete(event, props.comment_id)}} >Delete</button>
-        </div>
-    );
-};
+class DeleteComment extends Component {
+    state = {
+        deleted : false
+    }
+    render() {
+        return (
+            <div>
+                {this.state.deleted === false ?<button onClick={(event)=>{
+                    this.props.handleDelete(event, this.props.comment_id)
+                    this.setState({deleted :true})}}>Delete</button> : null}
+            </div>
+        );
+    }
+}
 
 export default DeleteComment;

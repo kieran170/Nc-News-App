@@ -60,6 +60,8 @@ class ArticleById extends Component {
     fetchArticleComments = (article_id) => {
         api.getArticleComments(article_id).then((comments) => {
             this.setState({comments, isLoading: false})
+        }).catch(({response:{data:{msg}}}) =>{
+            this.setState({errMessage: msg, isLoading: false})
         })
     }
     handleSubmit = (event, newComment, article_id, username) => {
