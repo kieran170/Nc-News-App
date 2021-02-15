@@ -160,8 +160,8 @@
   cursor: pointer;
 }
 .like-buttons:hover {
-    background-color: #2766a1;
-    color: white;
+  background-color: #2766a1;
+  color: white;
 }
 .like-buttons:disabled {
   pointer-events: none;
@@ -197,7 +197,7 @@
   transition-duration: 0.4s;
 }
 .post-comment-button:hover {
-  background-color: #2766a1; 
+  background-color: #2766a1;
   color: white;
 }
 .login-container {
@@ -212,10 +212,9 @@
   margin-top: 10px;
   border-radius: 10px;
   transition-duration: 0.4s;
-  
 }
 .username-button:hover {
-  background-color: #2766a1; 
+  background-color: #2766a1;
   color: white;
 }
 .hottest-article-container {
@@ -229,7 +228,7 @@
 }
 .hottest-article-text {
   display: none;
-} 
+}
 .hottest-article-title {
   display: none;
 }
@@ -288,8 +287,12 @@
   .trending-topic-button {
     border: 1px black solid;
     border-radius: 10px;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 10px;
     padding: 1%;
-    background-color: #EFEFEF
+    background-color: #efefef;
   }
   .hotttest-article-container {
     width: 35%;
